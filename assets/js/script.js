@@ -187,7 +187,11 @@ function createUl(corrispondenza, contenitore) {
   for (i = 0; i < corrispondenza.count; i++) {
     console.log(corrispondenza);
     let li = document.createElement("li");
-    li.textContent = corrispondenza.result[i].title;
+    li.textContent =
+      corrispondenza.result[i].title +
+      ", Posizione: " +
+      corrispondenza.result[i].location;
+
     ul.appendChild(li);
   }
   container.appendChild(ul);

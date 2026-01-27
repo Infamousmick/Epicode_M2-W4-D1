@@ -8,7 +8,7 @@
   </head>
   <body>
     <header>
-      <div class="header-card">
+      <div class="headerCard">
         <div class="userImg"></div>
         <div class="inputs">
           <div class="impiego">
@@ -20,7 +20,11 @@
             <input type="text" placeholder="Posizione" id="location" />
           </div>
         </div>
-        <button id="searchJob">Cerca</button>
+        <div class="buttonContainer">
+          <button id="searchJob">
+            Cerca <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -29,6 +33,10 @@
         <div id="risultati"></div>
       </div>
     </main>
+    <script
+      src="https://kit.fontawesome.com/b8761b87ac.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="assets/js/script.js"></script>
   </body>
 </html>
