@@ -4,10 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>Epicode M2 W4 D1</title>
   </head>
   <body>
     <header>
+      <div id="logoContainer">
+        <img id="logo" src="assets/img/linkedin_logo.png" alt="Linkedin Logo" />
+      </div>
+      <div class="iconContainer">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <div class="iconContainer">
+        <i class="fa-solid fa-house"></i>
+      </div>
+      <div class="iconContainer">
+        <i class="fa-solid fa-people-group"></i>
+      </div>
+      <div class="iconContainer">
+        <i class="fa-solid fa-briefcase"></i>
+      </div>
+      <div class="iconContainer">
+        <i class="fa-solid fa-comment-dots"></i>
+      </div>
+      <div class="iconContainer">
+        <i class="fa-solid fa-bell"></i>
+      </div>
+    </header>
+
+    <section id="search">
       <div class="headerCard">
         <div class="userImg"></div>
         <div class="inputs">
@@ -22,14 +52,14 @@
         </div>
         <div class="buttonContainer">
           <button id="searchJob">
-            Cerca <i class="fa-solid fa-magnifying-glass"></i>
+            Cerca <i id="buttonIcon" class="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
       </div>
-    </header>
+    </section>
 
     <main>
-      <div class="card">
+      <div class="card" id="cardRisultati">
         <div id="risultati"></div>
       </div>
     </main>

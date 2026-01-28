@@ -149,12 +149,11 @@ function searchJob(impiego, posizione) {
     }
   });
   if (matches.count == 0) {
-    alert("Nessuna corrispondenza trovata");
     changeDiv("cardError", false);
-    createUl(matches, "#risultati");
+    createUl(matches, "#risultati", "Nessuna corrispondenza trovata");
   } else {
     changeDiv("card", true);
-    createUl(matches, "#risultati");
+    createUl(matches, "#risultati", "");
   }
 }
 
@@ -169,30 +168,42 @@ function getInput() {
 }
 
 function changeDiv(classe, risultato) {
-  let card = document.querySelector(".card");
+  let card = document.querySelector("#cardRisultati");
   if (risultato == false) {
     card.classList.remove("card");
     card.classList.add("cardError");
+  } else {
+    card.classList.add("card");
+    card.classList.remove("cardError");
   }
 }
 
-function createUl(corrispondenza, contenitore) {
+function createUl(corrispondenza, contenitore, risultato) {
   let container = document.querySelector(contenitore);
   container.innerHTML = "";
   if (corrispondenza.count === 0) {
+    let paragraph = document.createElement("p");
+    let evidenziaTesto = document.createElement("strong");
+    evidenziaTesto.classList.add("strongError");
+    evidenziaTesto.textContent = risultato;
+    paragraph.appendChild(evidenziaTesto);
+    container.appendChild(paragraph);
     return;
-  }
+  } else {
+    let title = document.createElement("h2");
+    title.textContent = "Corrispondenze trovate:";
+    let ul = document.createElement("ul");
+    for (i = 0; i < corrispondenza.count; i++) {
+      console.log(corrispondenza);
+      let li = document.createElement("li");
+      li.textContent =
+        corrispondenza.result[i].title +
+        ", Posizione: " +
+        corrispondenza.result[i].location;
 
-  let ul = document.createElement("ul");
-  for (i = 0; i < corrispondenza.count; i++) {
-    console.log(corrispondenza);
-    let li = document.createElement("li");
-    li.textContent =
-      corrispondenza.result[i].title +
-      ", Posizione: " +
-      corrispondenza.result[i].location;
-
-    ul.appendChild(li);
+      ul.appendChild(li);
+    }
+    container.appendChild(title);
+    container.appendChild(ul);
   }
-  container.appendChild(ul);
 }
