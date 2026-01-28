@@ -112,6 +112,10 @@ input, input::placeholder {
 
 }
 
+input:hover {
+    background-color: rgba(21, 21, 21, 0.096);
+}
+
 button {
     padding: 10px;
     border-radius: 20px;
@@ -122,7 +126,7 @@ button {
 
 button:active, button:hover {
     border: 1px solid #3b3b3b;
-    background-color: #6a69695e;
+    background-color: rgba(21, 21, 21, 0.096);
 }
 
 #buttonIcon {
@@ -200,6 +204,8 @@ strong.strongError {
 
 h2 {
     text-align: center;
+    background-color: white;
+    color: #1699daa7;
 }
 
 ul {
@@ -216,4 +222,10 @@ li {
     border-radius: 20px;
     border: 1px solid #AAAAAA;
     background-color: white;
+    transition: scale 0.3s ease-in
+}
+
+li:hover {
+    scale: 1.05;
+    background-color: rgba(21, 21, 21, 0.096);
 }
