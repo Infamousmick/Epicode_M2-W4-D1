@@ -16,7 +16,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    height: 50px;
+    height: 60px;
     width: 100%;
     padding: 0 40px;
     margin-bottom: 20px;
@@ -29,13 +29,13 @@ header {
 }
 
 .logoContainer {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     object-fit: cover;
 }
 
 img#logo {
-    width: 30px;
+    width: 40px;
     height: auto;
     cursor: pointer;
 }
@@ -44,10 +44,18 @@ img#logo {
     width: 42px;
     height: 42px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    gap: 5px;
     align-items: center;
     cursor: pointer;
 }
+
+.iconContainer p {
+    font-size: 0.8em;
+    color: #666666;
+}
+
 
 .iconContainer i {
     color: #666666;
@@ -58,9 +66,10 @@ header div:nth-of-type(3) i {
     color: #191919;
 }
 
-.iconContainer i:hover {
+.iconContainer:hover p, .iconContainer i:hover {
     color: #191919;
 }
+
 
 section#search {
     position: relative;
@@ -206,6 +215,10 @@ h2 {
     text-align: center;
     background-color: white;
     color: #1699daa7;
+}
+
+#risultati {
+    background-color: white
 }
 
 ul {
