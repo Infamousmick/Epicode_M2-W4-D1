@@ -136,9 +136,6 @@ function searchJob(impiego, posizione) {
     result: [],
     count: 0,
   };
-  const impiegoLower = impiego.toLowerCase();
-  const posizioneLower = posizione.toLowerCase();
-  let cardClass = "";
   jobs.forEach((job) => {
     if (
       job.title.toLowerCase().includes(impiego.toLowerCase()) &&
@@ -149,10 +146,10 @@ function searchJob(impiego, posizione) {
     }
   });
   if (matches.count == 0) {
-    changeDiv("cardError", false);
+    changeDiv(false);
     createUl(matches, "#risultati", "Nessuna corrispondenza trovata");
   } else {
-    changeDiv("card", true);
+    changeDiv(true);
     createUl(matches, "#risultati", "");
   }
 }
@@ -167,9 +164,9 @@ function getInput() {
   }
 }
 
-function changeDiv(classe, risultato) {
+function changeDiv(risultato) {
   let card = document.querySelector("#cardRisultati");
-  if (risultato == false) {
+  if (!risultato) {
     card.classList.remove("card");
     card.classList.add("cardError");
   } else {
