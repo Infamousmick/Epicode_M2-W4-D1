@@ -42,13 +42,15 @@ img#logo {
 
 .iconContainer {
     width: 42px;
-    height: 42px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
     align-items: center;
     cursor: pointer;
+    margin-bottom: -3px;
+    border-bottom: 2px solid #BEBDBA;
 }
 
 .iconContainer p {
@@ -66,7 +68,11 @@ header div:nth-of-type(3) i {
     color: #191919;
 }
 
-.iconContainer:hover p, .iconContainer i:hover {
+.iconContainer:hover {
+    border-bottom: 2px solid black;
+}
+
+.iconContainer:hover p, .iconContainer:hover i {
     color: #191919;
 }
 
@@ -140,11 +146,10 @@ button:active, button:hover {
 
 #buttonIcon {
     font-size: 0.9em;
+    background-color: transparent;
 }
 
-button:hover #buttonIcon {
-    background-color: #6a69695e;
-}
+
 
 .inputs {
     display: flex;
