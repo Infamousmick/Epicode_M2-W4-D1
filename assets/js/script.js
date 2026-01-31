@@ -38,6 +38,9 @@ Dopo aver raccolto ed elaborato i dati, e’ il momento di mostrare i risultati 
 window.addEventListener("load", function () {
   let btnSearch = document.querySelector("#searchJob");
   btnSearch.addEventListener("click", () => getInput());
+  let btnRefresh = document.querySelector("#refresh");
+  btnRefresh.addEventListener("click", () => window.location.reload());
+  start();
 });
 
 // NON MODIFICARE QUESTO ARRAY!
@@ -131,6 +134,18 @@ const jobs = [
 // let prova = "Sono una provola"
 // if (prova.includes())
 
+function start() {
+  let matches = {
+    result: [],
+    count: 0,
+  };
+  jobs.forEach((job) => {
+    matches.result.push(job);
+    matches.count++;
+  });
+  changeDiv(true);
+  createUl(matches, "#risultati", "", true);
+}
 function searchJob(impiego, posizione) {
   let matches = {
     result: [],
@@ -147,10 +162,10 @@ function searchJob(impiego, posizione) {
   });
   if (matches.count == 0) {
     changeDiv(false);
-    createUl(matches, "#risultati", "Nessuna corrispondenza trovata");
+    createUl(matches, "#risultati", "Nessuna corrispondenza trovata", false);
   } else {
     changeDiv(true);
-    createUl(matches, "#risultati", "");
+    createUl(matches, "#risultati", "", false);
   }
 }
 
@@ -175,7 +190,7 @@ function changeDiv(risultato) {
   }
 }
 
-function createUl(corrispondenza, contenitore, risultato) {
+function createUl(corrispondenza, contenitore, risultato, isStart) {
   let container = document.querySelector(contenitore);
   container.innerHTML = "";
   if (corrispondenza.count === 0) {
@@ -188,15 +203,34 @@ function createUl(corrispondenza, contenitore, risultato) {
     return;
   } else {
     let title = document.createElement("h2");
-    title.textContent = "Corrispondenze trovate:";
+    if (isStart) {
+      title.textContent = "Lavori disponibili:";
+    } else {
+      title.textContent = "Corrispondenze trovate:";
+    }
     let ul = document.createElement("ul");
     for (i = 0; i < corrispondenza.count; i++) {
-      console.log(corrispondenza);
       let li = document.createElement("li");
-      li.textContent =
-        corrispondenza.result[i].title +
-        ", Posizione: " +
-        corrispondenza.result[i].location;
+      let h2Title = document.createElement("h2");
+      let paragraph = document.createElement("p");
+      let icon1 = document.createElement("i");
+      let icon2 = document.createElement("i");
+      icon1.classList.add("fa-solid");
+      icon1.classList.add("fa-briefcase");
+      let titleContainer = document.createElement("div");
+      let positionContainer = document.createElement("div");
+      icon2.classList.add("fa-solid");
+      icon2.classList.add("fa-location-dot");
+
+      h2Title.textContent = corrispondenza.result[i].title;
+      paragraph.textContent = "Posizione: " + corrispondenza.result[i].location;
+      titleContainer.appendChild(icon1);
+      titleContainer.appendChild(h2Title);
+
+      positionContainer.appendChild(icon2);
+      positionContainer.appendChild(paragraph);
+      li.appendChild(titleContainer);
+      li.appendChild(positionContainer);
 
       ul.appendChild(li);
     }
