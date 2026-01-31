@@ -24,20 +24,22 @@ header {
     justify-content: center;
     gap: 60px;
     align-items: center;
-    background-color: #F4F2EE;
+    background-color: white;
     border-bottom: 2px solid #BEBDBA
 }
 
-.logoContainer {
+#logoContainer {
     width: 40px;
     height: 40px;
     object-fit: cover;
+    background-color: transparent
 }
 
 img#logo {
     width: 40px;
     height: auto;
     cursor: pointer;
+    background-color: transparent
 }
 
 .iconContainer {
@@ -50,18 +52,21 @@ img#logo {
     align-items: center;
     cursor: pointer;
     margin-bottom: -3px;
+    background-color: transparent;
     border-bottom: 2px solid #BEBDBA;
 }
 
 .iconContainer p {
     font-size: 0.8em;
     color: #666666;
+    background-color: transparent
 }
 
 
 .iconContainer i {
     color: #666666;
-    font-size: 1.2em
+    font-size: 1.2em;
+    background-color: transparent
 }
 
 header div:nth-of-type(3) i {
