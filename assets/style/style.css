@@ -199,11 +199,13 @@ button:active, button:hover {
 .card, .cardError {
     width: 600px;
     max-width: 90%;
+    min-height: 200px;
     margin: 0 auto;
     padding: 20px 40px;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
     background-color: white;
     border: 2px solid #DFDEDA;
     border-radius: 8px;
@@ -275,7 +277,8 @@ strong.strongError {
 }
 
 #risultati {
-    background-color: white
+    background-color: white;
+    width: 100%;
 }
 
 ul {
